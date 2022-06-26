@@ -203,14 +203,14 @@ void str_regulator::write_reg_struct() const
 		}
 		//
 		for (int atype = 1; atype <= natomtype; atype++) {
-			for (int i = 0; i < natom; i++) {
+			for (int i = 0; i < natom_pri; i++) {
 				if (types_pri[i] == atype) {
 					if (reg_to_latttype == cart) {  // cart
-						x(0) = pos_pri[i][0]; x(1) = pos_pri[i][1]; x(0) = pos_pri[i][2];
+						x(0) = pos_pri[i][0]; x(1) = pos_pri[i][1]; x(2) = pos_pri[i][2];
 						x = L_pri * x;
 					}
 					else {                          // frac
-						x(0) = pos_pri[i][0]; x(1) = pos_pri[i][1]; x(0) = pos_pri[i][2];
+						x(0) = pos_pri[i][0]; x(1) = pos_pri[i][1]; x(2) = pos_pri[i][2];
 					}
 					fout << right << fixed << setprecision(16) << setw(20) << x(0);
 					fout << right << fixed << setprecision(16) << setw(20) << x(1);
@@ -276,11 +276,11 @@ void str_regulator::write_reg_struct() const
 			for (int i = 0; i < natom; i++) {
 				if (types_std[i] == atype) {
 					if (reg_to_latttype == cart) {  // cart
-						x(0) = pos_std[i][0]; x(1) = pos_std[i][1]; x(0) = pos_std[i][2];
+						x(0) = pos_std[i][0]; x(1) = pos_std[i][1]; x(2) = pos_std[i][2];
 						x = L_std * x;
 					}
 					else {                          // frac
-						x(0) = pos_std[i][0]; x(1) = pos_std[i][1]; x(0) = pos_std[i][2];
+						x(0) = pos_std[i][0]; x(1) = pos_std[i][1]; x(2) = pos_std[i][2];
 					}
 					fout << right << fixed << setprecision(16) << setw(20) << x(0);
 					fout << right << fixed << setprecision(16) << setw(20) << x(1);
